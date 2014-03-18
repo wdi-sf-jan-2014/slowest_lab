@@ -47,11 +47,17 @@ q6 SELECT "attendances".* FROM "attendances" WHERE "attendances"."user_id" =...
     initial       0.5   0.7   656.3   672.3   627.8   315.5
 add remember idx  0.5   0.9   677.3   658.9   643.3   313.3
 add follow fk idx 0.6   0.6     1.2     4.4     3.3   320.5
+add includes      0.4    *      1.0     5.5     4.1   316.7
 
-
+(before)
 Rendered attendances/_attendance.html.erb (202.7ms)
 Rendered users/show.html.erb within layouts/application (2076.7ms)
 Completed 200 OK in 2753ms (Views: 419.0ms | ActiveRecord: 2325.7ms)
+
+(after)
+Rendered attendances/_attendance.html.erb (27.4ms)
+Rendered users/show.html.erb within layouts/application (51.3ms)
+Completed 200 OK in 548ms (Views: 49.9ms | ActiveRecord: 349.3ms)
 
 *** Venues
 
