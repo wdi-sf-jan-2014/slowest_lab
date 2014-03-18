@@ -1,0 +1,9 @@
+<h1> <%= @user.name %> </h1>
+<h2>
+<p>
+follows <%= @user.followeds.size %> users and is followed by 
+<%= @user.followers.size %> users.
+</p>
+<ul>
+<%= render @user.attendances %>
+</ul></h2>

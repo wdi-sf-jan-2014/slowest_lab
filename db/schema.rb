@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140317230057) do
     t.string   "email"
     t.string   "name"
     t.string   "avatar"
+    t.string   "remember_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

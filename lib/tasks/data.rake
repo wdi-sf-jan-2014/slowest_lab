@@ -28,25 +28,29 @@ namespace :data do
 
   desc 'Generate some sample data'
   task :gen => :environment do
-    n_users = 6
-    n_venues = 2
-    n_shows = 3
-    p_attend = 0.5
-    p_mutual_follow = 0.2
-    p_follow = 0.2
+    n_users = 1000
+    n_venues = 800
+    n_shows = 1600
+    p_attend = 0.004
+    p_mutual_follow = 0.02
+    p_follow = 0.02
 
+    puts "Generating users..."
     user_ids = 1.upto(n_users).map{
       gen_user.id
     }
 
+    puts "Generating venues..."
     venue_ids = 1.upto(n_venues).map{
       gen_venue.id
     }
 
+    puts "Generating shows..."
     show_ids = 1.upto(n_shows).map{
       gen_show(venue_ids.sample).id
     }
 
+    puts "Generating attendances..."
     for uid in user_ids
       for sid in show_ids
         if rand < p_attend
@@ -55,6 +59,7 @@ namespace :data do
       end
     end
 
+    puts "Generating social ties..."
     for u1id in user_ids
       for u2id in user_ids
         if rand < p_mutual_follow

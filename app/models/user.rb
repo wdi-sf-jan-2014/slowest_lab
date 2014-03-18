@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
   validate :email => :unique
+  before_validation { |user| user.email = email.downcase }
+  before_save :create_remember_token
+
 
   has_many :inward_follows, :class_name => 'Follow', :foreign_key => 'followed_id'
   has_many :outward_follows, :class_name => 'Follow', :foreign_key => 'follower_id'
@@ -9,4 +12,19 @@ class User < ActiveRecord::Base
   has_many :followeds, :through => :outward_follows, :source => :followed
 
   has_many :attendances
+
+  def avatar
+    a = read_attribute(:avatar)
+    unless a
+      a = "http://robohash.org/#{SecureRandom.urlsafe_base64(5)}"
+      write_attribute(:avatar, a)
+    end
+    a
+  end
+
+  private
+
+  def create_remember_token
+    self.remember_token = SecureRandom.urlsafe_base64
+  end
 end

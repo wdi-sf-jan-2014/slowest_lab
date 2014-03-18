@@ -1,0 +1,8 @@
+<h1> <%= @show.title %> </h1>
+
+<h2> At <%= link_to(@show.venue) {@show.venue.name} %> </h2>
+
+<p><%= @show.description %></p>
+
+<h3>Users attending this show:</h3> 
+<%= render @show.users %>
