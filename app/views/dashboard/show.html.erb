@@ -1,10 +1,11 @@
 <div>
 <h1>Shows you are attending:</h1>
 <ul>
-  <% render @attendances %>
+  <%= render @attendances %>
 </ul>
 <h1>Shows the people you are following are attending</h1>
 <ul>
-  <% render @followed_attendances %>
+  <%= render :partial => 'attendances/attendance_with_user',
+       :collection => @followed_attendances, :as => 'attendance'%>
 </ul>
 </div>
