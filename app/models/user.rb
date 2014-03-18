@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   has_secure_password
-  validate :email => :unique
+  
   before_validation { |user| user.email = email.downcase }
   before_save :create_remember_token
 
+  validates_uniqueness_of :email
 
   has_many :inward_follows, :class_name => 'Follow', :foreign_key => 'followed_id'
   has_many :outward_follows, :class_name => 'Follow', :foreign_key => 'follower_id'
