@@ -1,8 +1,8 @@
 class CreateVenues < ActiveRecord::Migration
   def change
     create_table :venues do |t|
-      t.name :string
-      t.description :text
+      t.string :name
+      t.text :description
       t.timestamps
     end
   end

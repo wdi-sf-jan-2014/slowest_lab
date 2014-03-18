@@ -2,9 +2,9 @@ class CreateShows < ActiveRecord::Migration
   def change
     create_table :shows do |t|
       t.integer :venue_id
-      t.title :string
-      t.description :text
-      t.date :datetime
+      t.string :title
+      t.text :description
+      t.datetime :date
       t.timestamps
     end
   end

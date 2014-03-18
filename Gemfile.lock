@@ -64,6 +64,7 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    ffaker (1.23.0)
     ffi (1.9.3)
     formatador (0.2.4)
     guard (2.5.1)
@@ -195,6 +196,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   dotenv-rails
   factory_girl_rails
+  ffaker
   guard-rails
   guard-rspec
   jbuilder (~> 1.2)
