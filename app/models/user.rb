@@ -10,9 +10,12 @@ class User < ActiveRecord::Base
   has_many :outward_follows, :class_name => 'Follow', :foreign_key => 'follower_id'
 
   has_many :followers, :through => :inward_follows, :source => :follower
-  has_many :followeds, :through => :outward_follows, :source => :followed
+  has_many :followeds, :through => :outward_follows, :source => :follower
 
   has_many :attendances
+  has_many :shows, :through => :attendances
+
+  has_many :venues, :through=> :shows
 
   def avatar
     a = read_attribute(:avatar)
