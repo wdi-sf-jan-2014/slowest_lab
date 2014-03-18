@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(attendances: [show: :venue]).find(params[:id])
     if signed_in?
       @following = current_user.outward_follows.where(
         :followed_id => @user.id).exists?
@@ -21,6 +21,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.includes(:attendances)
+    @users = User.all
   end
 end

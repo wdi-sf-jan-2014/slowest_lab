@@ -1,11 +1,11 @@
 <div>
-  <p>
+  <p class="_attendance">
     <%= link_to attendance.show do %>
       <%= attendance.show.title %>
       on
       <%= attendance.show.date.in_time_zone("Pacific Time (US & Canada)") %>
     <% end %>
-    At: 
+    At:
     <%= link_to attendance.show.venue do %>
       <%= attendance.show.venue.name %>
     <% end %>
