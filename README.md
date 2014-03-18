@@ -7,7 +7,7 @@ To get started, create and migrate, then run `rake data:gen`.  This will take ab
 What I did:
 1) Made the users show page render faster:
   - Added ```has_many :shows, :through => :attendances``` in the users model
-  - Added @user = `User.includes(:shows, :venues).find(params[:id])` in the users controller
+  - Added ```@user = User.includes(:shows, :venues).find(params[:id])``` in the users controller
 2) Made the venues show page render faster:
   - Added ```has_many :venues, :through=> :shows``` in the users model
   - Added ```@venue = Venue.includes(:shows => (:attendances)).find(params[:id])``` in the venues controller
