@@ -3,6 +3,6 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
   end
   def index
-    @venues = Venue.all
+    @venues = Venue.all.includes(:shows)
   end
 end
