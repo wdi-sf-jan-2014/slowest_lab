@@ -40,10 +40,10 @@ namespace :data do
 
   desc 'Generate some sample data'
   task :gen => :environment do
-    n_users = 10000
+    n_users = 20000
     n_venues = 4000
     n_shows = 16000
-    p_attend = 0.0004
+    p_attend = 0.004
     p_mutual_follow = 0.002
     p_follow = 0.002
 
