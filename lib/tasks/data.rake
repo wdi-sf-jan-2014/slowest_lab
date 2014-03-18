@@ -9,7 +9,8 @@ namespace :data do
     User.create!(:password => 'asdasd',
      :password_confirmation => 'asdasd',
      :email => Faker::Internet.email,
-     :name => Faker::Name.name)
+     :name => Faker::Name.name,
+     :avatar => "http://robohash.org/#{IPSA.sample.word}")
   end
 
   def gen_venue
@@ -18,9 +19,11 @@ namespace :data do
   end
 
   def gen_show(vid)
+    ninepm = DateTime.now.at_beginning_of_day + (1/24.0)*(9 + 12)
     Show.create!(:venue_id => vid,
       :description => IPSA.sample.paragraph,
-      :title => ALBUMS.sample)
+      :title => ALBUMS.sample,
+      :date => ninepm + rand(1000))
   end
 
   desc 'Generate some sample data'

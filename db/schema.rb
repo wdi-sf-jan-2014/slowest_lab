@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140317230057) do
     t.string   "password_digest"
     t.string   "email"
     t.string   "name"
+    t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
