@@ -1,5 +1,5 @@
 <div>
-  <p>
+  <p class="_attendence_user">
   <%= image_tag attendance.user.avatar, :class => 'avatar' %>
     <%= link_to attendance.user do %>
       <%= attendance.user.name %>
@@ -10,7 +10,7 @@
       on
       <%= attendance.show.date.in_time_zone("Pacific Time (US & Canada)") %>
     <% end %>
-    At: 
+    At:
     <%= link_to attendance.show.venue do %>
       <%= attendance.show.venue.name %>
     <% end %>

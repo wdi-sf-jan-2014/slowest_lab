@@ -11,7 +11,7 @@ class DashboardController < ApplicationController
         @followed_attendances += a
       end
       @followed_attendances.sort_by!{|a| a.show.date}
-      
+
     end
   end
 end
