@@ -6,12 +6,15 @@ class DashboardController < ApplicationController
       @attendances = current_user.attendances
 
       # This is the worst:
-      @followed_attendances = []
-      current_user.followeds.map{|u| u.attendances}.each do |a|
-        @followed_attendances += a
-      end
-      @followed_attendances.sort_by!{|a| a.show.date}
-      
+      # updated
+      @followed_attendances = User.joins(followeds: [attendances: [{show: :venue}, :user]]).find(current_user.id)
     end
   end
 end
+
+
+# @followed_attendances = []
+# current_user.followeds.page(params[:page]).map{|u| u.attendances}.each do |a|
+#   @followed_attendances += a
+# end
+# @followed_attendances.sort_by!{|a| a.show.date}
