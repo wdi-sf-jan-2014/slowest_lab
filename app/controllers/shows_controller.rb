@@ -7,6 +7,6 @@ class ShowsController < ApplicationController
     end
   end
   def index
-    @shows = Show.all
+    @shows = Show.all.includes(:attendances).limit(1000)
   end
 end
