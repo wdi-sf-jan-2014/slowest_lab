@@ -17,3 +17,7 @@ You'll need to paginate some excessive queries also.  I suggest using kaminari.
 
 initial         163.9ms      1652.6ms    134.8ms       2142.3ms    2280ms
 eager loading   31.2ms       1259.6ms    47.1ms        1522.7ms    1669ms
+add_idx:follows 30.5ms       218.6ms     47.0ms        482.4ms     593ms
+add_2dx:follows 29.6ms       46.1m       45.7ms        338.7ms     445ms
+add_idx:attends 30.4ms       44.2ms      45.6ms        30.4ms      133ms
+fixed migrtions 35.6ms       43.5ms      44.0ms        16.0ms      77ms
