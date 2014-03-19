@@ -12,6 +12,12 @@ You'll need to paginate some excessive queries also.  I suggest using kaminari.
 
 # The Fastest Lab
 
+#### Venue Show
+                (from views) | (from AR) | Total
+
+initial         269.5ms       1636.0ms    1930ms
+eager_loading   139.2ms       1503.6ms    1645ms
+
 #### User Show
                 _attendance | show    | (from views) | (from AR) | Total
 
@@ -20,4 +26,10 @@ eager loading   31.2ms       1259.6ms    47.1ms        1522.7ms    1669ms
 add_idx:follows 30.5ms       218.6ms     47.0ms        482.4ms     593ms
 add_2dx:follows 29.6ms       46.1m       45.7ms        338.7ms     445ms
 add_idx:attends 30.4ms       44.2ms      45.6ms        30.4ms      133ms
-fixed migrtions 35.6ms       43.5ms      44.0ms        16.0ms      77ms
+fixed migrtions 29.2ms       36.7ms      37.2ms        16.0ms      70ms
+
+
+#### Dashboard Show
+                _attendance | application | (from views) | (from AR) | Total
+
+initial         290.9ms      292.5ms       256.6ms        81.7ms       409ms
