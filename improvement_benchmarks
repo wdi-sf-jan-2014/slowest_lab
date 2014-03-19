@@ -1,6 +1,7 @@
 Adding: "add_index :attendances, :user_id & add_index :attendances, :show_id" to "20140317230057_create_attendances.rb" improved "Sign In as User.first" by ~20 seconds (Franco)
 ~>navigation to users/5 = 2353ms
 ~>navigation to users/8 = 2142ms
+~>added 
 
 
 STEVE-O: -Initial-users/5 = 12389ms
