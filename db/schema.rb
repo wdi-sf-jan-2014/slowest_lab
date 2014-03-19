@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140317230057) do
+ActiveRecord::Schema.define(version: 20140318214140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +23,18 @@ ActiveRecord::Schema.define(version: 20140317230057) do
     t.datetime "updated_at"
   end
 
+  add_index "attendances", ["show_id"], name: "index_attendances_on_show_id", using: :btree
+  add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
+
   create_table "follows", force: true do |t|
     t.integer  "followed_id"
     t.integer  "follower_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "follows", ["followed_id"], name: "index_follows_on_followed_id", using: :btree
+  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
 
   create_table "shows", force: true do |t|
     t.integer  "venue_id"
@@ -38,6 +44,8 @@ ActiveRecord::Schema.define(version: 20140317230057) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "shows", ["venue_id"], name: "index_shows_on_venue_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "password_digest"
